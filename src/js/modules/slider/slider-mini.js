@@ -14,7 +14,7 @@ export default class MiniSlider extends Slider {
             }
         });
 
-        if(!this.slides[0].closest('button')) {
+        if (!this.slides[0].closest('button')) {
             this.slides[0].classList.add(this.activeClass);
         }
 
@@ -30,7 +30,7 @@ export default class MiniSlider extends Slider {
             this.container.appendChild(this.slides[1]); //кнопка
             this.container.appendChild(this.slides[2]); //кнопка
             this.decorizesSlides();
-        } else if (this.slides[1].tagName == 'BUTTON'){
+        } else if (this.slides[1].tagName == 'BUTTON') {
             this.container.appendChild(this.slides[0]); //слайд
             this.container.appendChild(this.slides[1]); //кнопка
             this.decorizesSlides();
@@ -56,18 +56,20 @@ export default class MiniSlider extends Slider {
     }
 
     init() {
-        this.container.style.cssText = `
+        try {
+            this.container.style.cssText = `
             display: flex;
             flex-wrap: wrap;
             overflow: hidden;
             align-items: flex-start;
-        `;
+            `;
 
-        this.bindTriggers();
-        this.decorizesSlides();
+            this.bindTriggers();
+            this.decorizesSlides();
 
-        if (this.autoplay) {
-            setInterval(() => this.nextSlide(), 5000)
-        }
+            if (this.autoplay) {
+                setInterval(() => this.nextSlide(), 5000)
+            }
+        } catch(e){}
     }
 }
