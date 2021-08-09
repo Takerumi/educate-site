@@ -4,8 +4,8 @@ const gulp = require("gulp");
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
-// const dist = "./dist/";
-const dist = '/srv/http/test/';
+const dist = "./dist/";
+// const dist = '/srv/http/test/';
 
 gulp.task("copy-html", () => {
   return gulp.src("./src/*.html")
